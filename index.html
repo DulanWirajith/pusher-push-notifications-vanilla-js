@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Hello World</title>
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="images/hello-icon-152.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="white" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="Hello World" />
+    <meta name="msapplication-TileImage" content="images/hello-icon-144.png" />
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <!-- <script src="./js/push-notifications-cdn.js"></script> -->
+    <script src="https://js.pusher.com/beams/1.0/push-notifications-cdn.js"></script>
+    <script>
+      const beamsClient = new PusherPushNotifications.Client({
+        instanceId: "12baca2d-de0c-4718-9100-669b7b317ff5",
+      });
+
+      // beamsClient.start()
+      //   .then(() => beamsClient.addDeviceInterest('debug-hello-wb'))
+      //   .then(() => console.log('Successfully registered and subscribed!'))
+      //   .catch(console.error);
+
+      // beamsClient
+      //             .start()
+      //             .then((beamsClient) => {
+      //                 return beamsClient.getDeviceId();
+      //             })
+      //             .then((deviceId) =>
+      //                 console.log("Successfully registered with Beams. Device ID:", deviceId)
+      //             )
+      //             .catch(console.error);
+
+      // beamsClient
+      //   .start()
+      //   .then((beamsClient) => beamsClient.getDeviceId())
+      //   .then((deviceId) =>
+      //     console.log(
+      //       "Successfully registered with Beams. Device ID:",
+      //       deviceId
+      //     )
+      //   )
+      //   .then(() => beamsClient.addDeviceInterest("hello"))
+      //   .then(() => beamsClient.getDeviceInterests())
+      //   .then((interests) => console.log("Current interests:", interests))
+      //   .catch(console.error);
+
+      const currentUserId = "alice"; // Get this from your auth system
+
+      // beamsClient
+      //   .getUserId()
+      //   .then((userId) => {
+      //     console.log(`userId is ${userId}`);
+      //     console.log(`currentUserId is ${currentUserId}`);
+      //     // Check if the Beams user matches the user that is currently logged in
+      //     if (userId !== currentUserId) {
+      //       // Unregister for notifications
+      //       return beamsClient.stop();
+      //     }
+      //   })
+      //   .catch(console.error);
+
+      const beamsTokenProvider = new PusherPushNotifications.TokenProvider({
+        url: "https://api.tribz.fr/notifications/pusher/beams-auth",
+        
+      });
+      beamsClient
+        .start()
+        .then(() =>
+          beamsClient.setUserId(
+            "39fd824c-4b63-4de5-97b5-407965d70106",
+            beamsTokenProvider
+          )
+        )
+        .catch(console.error);
+    </script>
+  </head>
+  <body class="fullscreen">
+    <div class="container">
+      <h1 class="title">Hello World!</h1>
+    </div>
+    <script src="js/main.js"></script>
+  </body>
+</html>
