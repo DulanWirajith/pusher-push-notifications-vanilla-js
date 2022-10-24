@@ -21,50 +21,6 @@
         instanceId: "12baca2d-de0c-4718-9100-669b7b317ff5",
       });
 
-      // beamsClient.start()
-      //   .then(() => beamsClient.addDeviceInterest('debug-hello-wb'))
-      //   .then(() => console.log('Successfully registered and subscribed!'))
-      //   .catch(console.error);
-
-      // beamsClient
-      //             .start()
-      //             .then((beamsClient) => {
-      //                 return beamsClient.getDeviceId();
-      //             })
-      //             .then((deviceId) =>
-      //                 console.log("Successfully registered with Beams. Device ID:", deviceId)
-      //             )
-      //             .catch(console.error);
-
-      // beamsClient
-      //   .start()
-      //   .then((beamsClient) => beamsClient.getDeviceId())
-      //   .then((deviceId) =>
-      //     console.log(
-      //       "Successfully registered with Beams. Device ID:",
-      //       deviceId
-      //     )
-      //   )
-      //   .then(() => beamsClient.addDeviceInterest("hello"))
-      //   .then(() => beamsClient.getDeviceInterests())
-      //   .then((interests) => console.log("Current interests:", interests))
-      //   .catch(console.error);
-
-      // const currentUserId = "alice"; // Get this from your auth system
-
-      // beamsClient
-      //   .getUserId()
-      //   .then((userId) => {
-      //     console.log(`userId is ${userId}`);
-      //     console.log(`currentUserId is ${currentUserId}`);
-      //     // Check if the Beams user matches the user that is currently logged in
-      //     if (userId !== currentUserId) {
-      //       // Unregister for notifications
-      //       return beamsClient.stop();
-      //     }
-      //   })
-      //   .catch(console.error);
-
       const beamsTokenProvider = new PusherPushNotifications.TokenProvider({
         url: "https://api.tribz.fr/notifications/pusher/beams-auth",
         headers: {
