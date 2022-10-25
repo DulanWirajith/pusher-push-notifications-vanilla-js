@@ -3,6 +3,6 @@ window.onload = () => {
 
   if ('serviceWorkerContainer' in navigator) {
     navigator.serviceWorkerContainer
-             .register('https://dulanwirajith.github.io/pusher-push-notifications-vanilla-js/sw.js');
+             .register('./sw.js');
   }
 }
